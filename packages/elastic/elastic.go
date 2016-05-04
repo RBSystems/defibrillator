@@ -13,14 +13,14 @@ func GetHostnames() (AllHostnames, error) {
   "aggs": {
     "full_name": {
       "terms": {
-      "field": "device.hostname",
+      "field": "hostname",
         "size": 0
       }
     }
   }
 }`)
 
-	req, err := http.NewRequest("POST", "http://search-byu-oit-av-metrics-ruenjnrqfuhghh7omvtmgcqe7m.us-west-1.es.amazonaws.com/events/_search", bytes.NewBuffer(postBody))
+	req, err := http.NewRequest("POST", "http://search-byu-oit-av-metrics-ruenjnrqfuhghh7omvtmgcqe7m.us-west-1.es.amazonaws.com/config/_search", bytes.NewBuffer(postBody))
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
